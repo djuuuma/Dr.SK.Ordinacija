@@ -1,0 +1,119 @@
+{
+    "nav": {
+        "home": "Home",
+        "services": "Services",
+        "process": "Process",
+        "gallery": "Gallery",
+        "about": "About Me",
+        "contact": "Contact",
+        "book": "Book Appointment"
+    },
+    "hero": {
+        "tagline": "Top Dentistry in Sarajevo",
+        "title": "Your perfect smile is our mission.",
+        "subtitle": "We provide fast, painless, and long-lasting dental services using the latest technology. Regain your confidence with our expert team.",
+        "book_btn": "Book Appointment",
+        "process_btn": "Our Process"
+    },
+    "features": {
+        "fast": {
+            "title": "Fast and Painless",
+            "desc": "We use the latest methods and anesthetics so every treatment is completely comfortable and efficient."
+        },
+        "quality": {
+            "title": "Premium Quality",
+            "desc": "World-class materials and years of experience guarantee long-lasting results."
+        },
+        "esthetic": {
+            "title": "Aesthetics First",
+            "desc": "We focus on the natural look of your teeth, bringing back your radiant smile."
+        }
+    },
+    "services": {
+        "tag": "What we offer",
+        "title": "Comprehensive Dental Services",
+        "desc": "From preventive check-ups to complex prosthetic work, our team is here for your dental health.",
+        "learn_more": "Learn more",
+        "price_btn": "View Pricing",
+        "items": [
+            {
+                "title": "Aesthetic Dentistry",
+                "desc": "Teeth whitening, veneers, and composite restorations for a perfect smile."
+            },
+            {
+                "title": "Prosthetics",
+                "desc": "High-quality crowns, bridges, and dentures with a natural look."
+            },
+            {
+                "title": "Conservative",
+                "desc": "Caries treatment, endodontics, and tooth repairs using modern materials."
+            },
+            {
+                "title": "Preventive",
+                "desc": "Regular check-ups, tartar removal, and polishing for long-term health."
+            }
+        ]
+    },
+    "doctor": {
+        "tag": "Your Dentist",
+        "title": "Dr. Sanela Kapić",
+        "quote": "\"My mission is to break the fear of dentists and give you the smile you deserve, with a gentle approach and the latest global technology.\"",
+        "btn": "Meet the Doctor"
+    },
+    "gallery": {
+        "tag": "Our Work",
+        "title": "Proof of Our Quality",
+        "desc": "Transformations that restore confidence. Your smile is our best advertisement.",
+        "btn": "Full Gallery",
+        "overlay": "Before & After"
+    },
+    "testimonials": {
+        "tag": "Patient Experiences",
+        "title": "What they say about us",
+        "reviews": [
+            {
+                "name": "Amira S.",
+                "text": "Best dental experience ever! Dr. Sanela is extremely attentive and professional. The clinic is beautiful and modern."
+            },
+            {
+                "name": "Kenan M.",
+                "text": "I had a fear of dentists for years, but I felt completely relaxed here. Full recommendations for this wonderful team!"
+            },
+            {
+                "name": "Lejla H.",
+                "text": "I got veneers and the result is beyond all my expectations. I finally smile with confidence. Thank you doctor!"
+            }
+        ]
+    },
+    "faq": {
+        "tag": "Frequent Questions",
+        "title": "Have questions? We have answers.",
+        "missing": "Didn't find the answer you're looking for?",
+        "contact": "Contact us directly",
+        "items": [
+            {
+                "question": "Do dental exams hurt?",
+                "answer": "No! We use modern anesthetics and methods to make every treatment completely painless and comfortable for the patient."
+            },
+            {
+                "question": "How often should I come for a check-up?",
+                "answer": "We recommend regular check-ups every 6 months to prevent major problems and maintain dental hygiene."
+            },
+            {
+                "question": "How long does teeth whitening take?",
+                "answer": "In-office laser whitening usually takes about 45 minutes to an hour, with instantly visible results."
+            },
+            {
+                "question": "Do you offer payment in installments?",
+                "answer": "Yes, for larger prosthetic work we offer installment payments. You'll get a detailed plan and price at your free consultation."
+            }
+        ]
+    },
+    "footer": {
+        "desc": "Premium dental service in the heart of Sarajevo. Your smile is our care.",
+        "links": "Quick Links",
+        "services": "Services",
+        "rights": "Dental clinic Dr. Sanela Kapić. All rights reserved.",
+        "design": "Design and development:"
+    }
+}

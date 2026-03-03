@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, Instagram, Facebook } from 'lucide-react';
+import { Menu, X, Instagram, Facebook, Globe } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const Logo = ({ className = "w-8 h-8" }: { className?: string }) => (
     <svg className={className} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -10,10 +11,16 @@ const Logo = ({ className = "w-8 h-8" }: { className?: string }) => (
 );
 
 export default function Layout() {
+    const { t, i18n } = useTranslation();
     const [isScrolled, setIsScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const location = useLocation();
     const isHomePage = location.pathname === '/';
+
+    const toggleLanguage = () => {
+        const newLang = i18n.language === 'bs' ? 'en' : 'bs';
+        i18n.changeLanguage(newLang);
+    };
 
     useEffect(() => {
         const handleScroll = () => {
@@ -34,12 +41,12 @@ export default function Layout() {
     }, [location.pathname]);
 
     const navLinks = [
-        { name: 'Početna', href: '/' },
-        { name: 'Usluge', href: '/usluge' },
-        { name: 'Proces', href: '/proces' },
-        { name: 'Galerija', href: '/galerija' },
-        { name: 'O meni', href: '/o-meni' },
-        { name: 'Kontakt', href: '/kontakt' },
+        { name: t('nav.home'), href: '/' },
+        { name: t('nav.services'), href: '/usluge' },
+        { name: t('nav.process'), href: '/proces' },
+        { name: t('nav.gallery'), href: '/galerija' },
+        { name: t('nav.about'), href: '/o-meni' },
+        { name: t('nav.contact'), href: '/kontakt' },
     ];
 
     return (
@@ -65,19 +72,25 @@ export default function Layout() {
                     </Link>
 
                     {/* Desktop Nav */}
-                    <nav className="hidden md:flex items-center gap-8">
+                    <nav className="hidden md:flex items-center gap-6 lg:gap-8">
                         {navLinks.map((link) => (
                             <Link
                                 key={link.name}
                                 to={link.href}
                                 className={`text-sm font-medium transition-colors hover:text-primary ${location.pathname === link.href
-                                        ? (isScrolled || !isHomePage ? 'text-primary' : 'text-white font-bold')
-                                        : (isScrolled || !isHomePage ? 'text-slate-600' : 'text-white/90 hover:text-white')
+                                    ? (isScrolled || !isHomePage ? 'text-primary' : 'text-white font-bold')
+                                    : (isScrolled || !isHomePage ? 'text-slate-600' : 'text-white/90 hover:text-white')
                                     }`}
                             >
                                 {link.name}
                             </Link>
                         ))}
+
+                        <button onClick={toggleLanguage} className={`flex items-center gap-1 text-sm font-bold uppercase transition-colors hover:text-primary pl-2 border-l ${isScrolled || !isHomePage ? 'text-slate-600 border-slate-300' : 'text-white border-white/30'}`}>
+                            <Globe className="w-4 h-4" />
+                            {i18n.language === 'en' ? 'EN' : 'BS'}
+                        </button>
+
                         <Link
                             to="/kontakt"
                             className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-green-400 ${isScrolled || !isHomePage
@@ -85,21 +98,26 @@ export default function Layout() {
                                 : 'bg-white text-primary hover:bg-bg-medical'
                                 }`}
                         >
-                            Zakažite pregled
+                            {t('nav.book')}
                         </Link>
                     </nav>
 
                     {/* Mobile Menu Toggle */}
-                    <button
-                        className="md:hidden p-2"
-                        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                    >
-                        {mobileMenuOpen ? (
-                            <X className={isScrolled || !isHomePage ? 'text-text-medical' : 'text-white'} />
-                        ) : (
-                            <Menu className={isScrolled || !isHomePage ? 'text-text-medical' : 'text-white'} />
-                        )}
-                    </button>
+                    <div className="flex items-center md:hidden gap-4">
+                        <button onClick={toggleLanguage} className={`flex items-center gap-1 text-sm font-bold uppercase ${isScrolled || !isHomePage ? 'text-text-medical' : 'text-white'}`}>
+                            <Globe className="w-5 h-5" />
+                        </button>
+                        <button
+                            className="p-2"
+                            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                        >
+                            {mobileMenuOpen ? (
+                                <X className={isScrolled || !isHomePage ? 'text-text-medical' : 'text-white'} />
+                            ) : (
+                                <Menu className={isScrolled || !isHomePage ? 'text-text-medical' : 'text-white'} />
+                            )}
+                        </button>
+                    </div>
                 </div>
             </header>
 
@@ -123,11 +141,17 @@ export default function Layout() {
                                     {link.name}
                                 </Link>
                             ))}
+                            <div className="flex justify-center mt-2 border-t border-slate-100 pt-6">
+                                <button onClick={toggleLanguage} className="flex items-center gap-2 text-lg font-bold uppercase text-primary bg-primary/10 px-6 py-2 rounded-full">
+                                    <Globe className="w-5 h-5" />
+                                    {i18n.language === 'en' ? 'Prebaci na Bosanski' : 'Switch to English'}
+                                </button>
+                            </div>
                             <Link
                                 to="/kontakt"
                                 className="mt-4 px-6 py-4 bg-cta text-white rounded-2xl text-lg font-semibold shadow-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 transition-all"
                             >
-                                Zakažite besplatan pregled
+                                {t('nav.book')}
                             </Link>
                         </nav>
                     </motion.div>
@@ -149,7 +173,7 @@ export default function Layout() {
                                 <span className="font-serif font-bold text-xl">Dr. Sanela Kapić</span>
                             </div>
                             <p className="mb-6 max-w-sm">
-                                Vrhunska stomatološka usluga u srcu Sarajeva. Vaš osmijeh je naša briga.
+                                {t('footer.desc')}
                             </p>
                             <div className="flex gap-4">
                                 <a href="#" className="w-10 h-10 rounded-full bg-primary flex items-center justify-center hover:bg-white hover:text-primary focus:outline-none focus:ring-2 focus:ring-secondary text-white">
@@ -162,29 +186,29 @@ export default function Layout() {
                         </div>
 
                         <div>
-                            <h4 className="text-white font-bold mb-4">Brzi Linkovi</h4>
+                            <h4 className="text-white font-bold mb-4">{t('footer.links')}</h4>
                             <ul className="space-y-2">
-                                <li><Link to="/" className="hover:text-white transition-colors">Početna</Link></li>
-                                <li><Link to="/usluge" className="hover:text-white transition-colors">Usluge</Link></li>
-                                <li><Link to="/galerija" className="hover:text-white transition-colors">Galerija</Link></li>
-                                <li><Link to="/o-meni" className="hover:text-white transition-colors">O nama</Link></li>
+                                <li><Link to="/" className="hover:text-white transition-colors">{t('nav.home')}</Link></li>
+                                <li><Link to="/usluge" className="hover:text-white transition-colors">{t('nav.services')}</Link></li>
+                                <li><Link to="/galerija" className="hover:text-white transition-colors">{t('nav.gallery')}</Link></li>
+                                <li><Link to="/o-meni" className="hover:text-white transition-colors">{t('nav.about')}</Link></li>
                             </ul>
                         </div>
 
                         <div>
-                            <h4 className="text-white font-bold mb-4">Usluge</h4>
+                            <h4 className="text-white font-bold mb-4">{t('footer.services')}</h4>
                             <ul className="space-y-2">
                                 <li><Link to="/usluge" className="hover:text-white transition-colors">Estetska Stomatologija</Link></li>
                                 <li><Link to="/usluge" className="hover:text-white transition-colors">Protetika</Link></li>
                                 <li><Link to="/usluge" className="hover:text-white transition-colors">Konzervativa</Link></li>
-                                <li><Link to="/usluge" className="hover:text-white transition-colors">Dječija Stomatologija</Link></li>
+                                <li><Link to="/usluge" className="hover:text-white transition-colors">Preventiva</Link></li>
                             </ul>
                         </div>
                     </div>
 
-                    <div className="pt-8 border-t border-slate-800 text-sm flex flex-col md:flex-row justify-between items-center">
-                        <p>&copy; {new Date().getFullYear()} Stomatološka ordinacija Dr. Sanela Kapić. Sva prava zadržana.</p>
-                        <p className="mt-2 md:mt-0">Dizajn i izrada: <a href="https://www.linkedin.com/in/anes-djumisic/" target="_blank" rel="noopener noreferrer" className="text-white font-semibold hover:underline">Anes Đumišić</a></p>
+                    <div className="pt-8 border-t border-slate-800 text-sm flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-4">
+                        <p>&copy; {new Date().getFullYear()} {t('footer.rights')}</p>
+                        <p>{t('footer.design')} <a href="https://www.linkedin.com/in/anes-djumisic/" target="_blank" rel="noopener noreferrer" className="text-white font-semibold hover:underline">Anes Đumišić</a></p>
                     </div>
                 </div>
             </footer>

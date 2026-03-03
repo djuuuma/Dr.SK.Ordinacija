@@ -1,0 +1,119 @@
+{
+    "nav": {
+        "home": "Početna",
+        "services": "Usluge",
+        "process": "Proces",
+        "gallery": "Galerija",
+        "about": "O meni",
+        "contact": "Kontakt",
+        "book": "Zakažite pregled"
+    },
+    "hero": {
+        "tagline": "Vrhunska stomatologija u Sarajevu",
+        "title": "Vaš savršen osmijeh je naša misija.",
+        "subtitle": "Pružamo brze, bezbolne i dugotrajne stomatološke usluge koristeći najmoderniju tehnologiju. Vratite samopouzdanje uz naš stručni tim.",
+        "book_btn": "Zakažite termin",
+        "process_btn": "Naš Proces"
+    },
+    "features": {
+        "fast": {
+            "title": "Brzo i Bezbolno",
+            "desc": "Koristimo najnovije metode i anestetike kako bi svaki tretman bio potpuno ugodan i efikasan."
+        },
+        "quality": {
+            "title": "Vrhunski Kvalitet",
+            "desc": "Materijali svjetske klase i dugogodišnje iskustvo garantuju dugotrajne rezultate."
+        },
+        "esthetic": {
+            "title": "Estetika na Prvom Mjestu",
+            "desc": "Fokusirani smo na prirodan izgled vaših zuba, vraćajući vam blistav osmijeh."
+        }
+    },
+    "services": {
+        "tag": "Šta nudimo",
+        "title": "Sveobuhvatne Stomatološke Usluge",
+        "desc": "Od preventivnih pregleda do složenih protetskih radova, naš tim je tu za zdravlje vaših zuba.",
+        "learn_more": "Saznaj više",
+        "price_btn": "Pogledajte Cjenovnik Usluga",
+        "items": [
+            {
+                "title": "Estetska Stomatologija",
+                "desc": "Izbjeljivanje zuba, fasete i kompozitne nadogradnje za savršen osmijeh."
+            },
+            {
+                "title": "Protetika",
+                "desc": "Krunice, mostovi i proteze vrhunskog kvaliteta i prirodnog izgleda."
+            },
+            {
+                "title": "Konzervativa",
+                "desc": "Liječenje karijesa, endodoncija i popravke zuba najmodernijim materijalima."
+            },
+            {
+                "title": "Preventiva",
+                "desc": "Redovni pregledi, uklanjanje kamenca i poliranje za dugoročno zdravlje."
+            }
+        ]
+    },
+    "doctor": {
+        "tag": "Vaš Stomatolog",
+        "title": "Dr. Sanela Kapić",
+        "quote": "\"Moja misija je da razbijem strah od zubara i pružim vam osmijeh kakav zaslužujete, uz nježan pristup i korištenje najnovije svjetske tehnologije.\"",
+        "btn": "Upoznajte Doktora"
+    },
+    "gallery": {
+        "tag": "Naši Radovi",
+        "title": "Dokaz našeg kvaliteta",
+        "desc": "Transformacije koje vraćaju samopouzdanje. Vaš osmijeh je naša najbolja reklama.",
+        "btn": "Cijela Galerija",
+        "overlay": "Prije & Poslije"
+    },
+    "testimonials": {
+        "tag": "Iskustva Pacijenata",
+        "title": "Šta kažu o nama",
+        "reviews": [
+            {
+                "name": "Amira S.",
+                "text": "Najbolje iskustvo kod zubara ikada! Dr. Sanela je izuzetno pažljiva i profesionalna. Ordinacija je prelijepa i moderna."
+            },
+            {
+                "name": "Kenan M.",
+                "text": "Godinama sam imao strah od zubara, ali ovdje sam se osjećao potpuno opušteno. Sve preporuke za ovaj divan tim!"
+            },
+            {
+                "name": "Lejla H.",
+                "text": "Radila sam fasete i rezultat je iznad svih mojih očekivanja. Konačno se smijem sa samopouzdanjem. Hvala doktorici!"
+            }
+        ]
+    },
+    "faq": {
+        "tag": "Česta Pitanja",
+        "title": "Imate pitanja? Imamo odgovore.",
+        "missing": "Niste pronašli odgovor koji tražite?",
+        "contact": "Kontaktirajte nas direktno",
+        "items": [
+            {
+                "question": "Da li stomatološki pregledi bole?",
+                "answer": "Ne! Koristimo savremene anestetike i metode kako bi svaki tretman bio potpuno bezbolan i ugodan za pacijenta."
+            },
+            {
+                "question": "Koliko često trebam dolaziti na pregled?",
+                "answer": "Preporučujemo redovne preglede svakih 6 mjeseci kako bismo spriječili nastanak većih problema i održavali higijenu zuba."
+            },
+            {
+                "question": "Koliko traje proces izbjeljivanja zuba?",
+                "answer": "Lasersko izbjeljivanje u ordinaciji obično traje oko 45 minuta do sat vremena, uz trenutno vidljive rezultate."
+            },
+            {
+                "question": "Da li nudite plaćanje na rate?",
+                "answer": "Da, za veće protetske radove nudimo mogućnost plaćanja na rate. Detaljan plan i cijenu dobijate na besplatnom pregledu."
+            }
+        ]
+    },
+    "footer": {
+        "desc": "Vrhunska stomatološka usluga u srcu Sarajeva. Vaš osmijeh je naša briga.",
+        "links": "Brzi Linkovi",
+        "services": "Usluge",
+        "rights": "Stomatološka ordinacija Dr. Sanela Kapić. Sva prava zadržana.",
+        "design": "Dizajn i izrada:"
+    }
+}

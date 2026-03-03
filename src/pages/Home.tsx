@@ -1,9 +1,28 @@
-import React from 'react';
-import { motion } from 'motion/react';
-import { ChevronRight, Shield, Smile, Zap, Star } from 'lucide-react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { ChevronRight, Shield, Smile, Zap, Star, ArrowRight, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 export default function Home() {
+    const { t } = useTranslation();
+    const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+    const toggleFaq = (index: number) => {
+        setOpenFaq(openFaq === index ? null : index);
+    };
+
+    const faqs = t('faq.items', { returnObjects: true }) as Array<{ question: string, answer: string }>;
+    const services = t('services.items', { returnObjects: true }) as Array<{ title: string, desc: string }>;
+    const reviews = t('testimonials.reviews', { returnObjects: true }) as Array<{ name: string, text: string }>;
+
+    const serviceImages = [
+        'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=800&auto=format&fit=crop',
+        'https://images.unsplash.com/photo-1609840114035-3c981b782dfe?q=80&w=800&auto=format&fit=crop',
+        'https://images.unsplash.com/photo-1598256989800-fea5f95bc14c?q=80&w=800&auto=format&fit=crop',
+        'https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=800&auto=format&fit=crop'
+    ];
+
     return (
         <>
             {/* Hero Section */}
@@ -26,26 +45,26 @@ export default function Home() {
                         className="max-w-3xl mx-auto"
                     >
                         <span className="inline-block py-1 px-3 rounded-full bg-white/20 text-white text-sm font-medium mb-6 backdrop-blur-sm border border-white/30">
-                            Vrhunska stomatologija u Sarajevu
+                            {t('hero.tagline')}
                         </span>
                         <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white mb-6 leading-tight">
-                            Vaš savršen osmijeh je naša misija.
+                            {t('hero.title')}
                         </h1>
                         <p className="text-lg md:text-xl text-white/90 mb-10 font-light">
-                            Pružamo brze, bezbolne i dugotrajne stomatološke usluge koristeći najmoderniju tehnologiju. Vratite samopouzdanje uz naš stručni tim.
+                            {t('hero.subtitle')}
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Link
                                 to="/kontakt"
                                 className="px-8 py-4 bg-cta text-white rounded-full font-semibold text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all flex items-center justify-center gap-2 focus:outline-none focus:ring-2 focus:ring-green-400"
                             >
-                                Zakažite termin <ChevronRight className="w-5 h-5" />
+                                {t('hero.book_btn')} <ChevronRight className="w-5 h-5" />
                             </Link>
                             <Link
-                                to="/usluge"
+                                to="/proces"
                                 className="px-8 py-4 bg-primary-dark/50 text-white rounded-full font-semibold text-lg border border-white/30 hover:bg-primary-dark transition-all backdrop-blur-sm"
                             >
-                                Naše usluge
+                                {t('hero.process_btn')}
                             </Link>
                         </div>
                     </motion.div>
@@ -59,48 +78,184 @@ export default function Home() {
                         <div className="w-16 h-16 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-4">
                             <Zap className="w-8 h-8" />
                         </div>
-                        <h3 className="text-xl font-bold mb-2">Brzo i Bezbolno</h3>
-                        <p className="text-slate-600 text-sm">Koristimo najnovije metode i anestetike kako bi svaki tretman bio potpuno ugodan i efikasan.</p>
+                        <h3 className="text-xl font-bold mb-2">{t('features.fast.title')}</h3>
+                        <p className="text-slate-600 text-sm">{t('features.fast.desc')}</p>
                     </div>
                     <div className="flex flex-col items-center text-center">
                         <div className="w-16 h-16 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-4">
                             <Shield className="w-8 h-8" />
                         </div>
-                        <h3 className="text-xl font-bold mb-2">Vrhunski Kvalitet</h3>
-                        <p className="text-slate-600 text-sm">Materijali svjetske klase i dugogodišnje iskustvo garantuju dugotrajne rezultate.</p>
+                        <h3 className="text-xl font-bold mb-2">{t('features.quality.title')}</h3>
+                        <p className="text-slate-600 text-sm">{t('features.quality.desc')}</p>
                     </div>
                     <div className="flex flex-col items-center text-center">
                         <div className="w-16 h-16 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-4">
                             <Smile className="w-8 h-8" />
                         </div>
-                        <h3 className="text-xl font-bold mb-2">Estetika na Prvom Mjestu</h3>
-                        <p className="text-slate-600 text-sm">Fokusirani smo na prirodan izgled vaših zuba, vraćajući vam blistav osmijeh.</p>
+                        <h3 className="text-xl font-bold mb-2">{t('features.esthetic.title')}</h3>
+                        <p className="text-slate-600 text-sm">{t('features.esthetic.desc')}</p>
+                    </div>
+                </div>
+            </section>
+
+            {/* Services Preview */}
+            <section className="py-24 bg-bg-medical">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="text-center max-w-2xl mx-auto mb-16">
+                        <h2 className="text-primary font-semibold tracking-wide uppercase text-sm mb-2">{t('services.tag')}</h2>
+                        <h3 className="text-3xl md:text-4xl font-serif font-bold text-text-medical mb-4">{t('services.title')}</h3>
+                        <p className="text-slate-600">{t('services.desc')}</p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                        {services.map((service, idx) => (
+                            <div key={idx} className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow group flex flex-col">
+                                <div className="h-48 overflow-hidden">
+                                    <img src={serviceImages[idx]} alt={service.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" referrerPolicy="no-referrer" />
+                                </div>
+                                <div className="p-6 flex-grow flex flex-col">
+                                    <h4 className="text-xl font-bold mb-2 text-text-medical">{service.title}</h4>
+                                    <p className="text-slate-600 text-sm mb-4 flex-grow">{service.desc}</p>
+                                    <span className="text-primary font-semibold text-sm flex items-center gap-1 group-hover:text-primary-dark transition-colors">
+                                        {t('services.learn_more')} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                    </span>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+
+                    <div className="text-center">
+                        <Link to="/usluge" className="inline-flex items-center gap-2 font-bold text-primary hover:text-primary-dark transition-colors group text-lg bg-primary/10 px-8 py-3 rounded-full hover:bg-primary/20">
+                            {t('services.price_btn')} <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                        </Link>
+                    </div>
+                </div>
+            </section>
+
+            {/* Meet the Doctor Preview */}
+            <section className="py-24 bg-white relative overflow-hidden">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <div className="bg-bg-medical rounded-[3rem] p-8 md:p-16 flex flex-col md:flex-row items-center gap-12 shadow-sm border border-slate-100">
+                        <div className="md:w-1/2 w-full">
+                            <div className="relative rounded-3xl overflow-hidden aspect-[4/3] md:h-[400px] shadow-lg">
+                                <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=800&auto=format&fit=crop" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" alt="Dr. Sanela Kapić" referrerPolicy="no-referrer" />
+                            </div>
+                        </div>
+                        <div className="md:w-1/2 w-full">
+                            <h2 className="text-primary font-semibold tracking-wide uppercase text-sm mb-2">{t('doctor.tag')}</h2>
+                            <h3 className="text-3xl md:text-5xl font-serif font-bold text-text-medical mb-6">{t('doctor.title')}</h3>
+                            <p className="text-slate-600 mb-8 text-lg leading-relaxed italic border-l-4 border-primary/30 pl-4">
+                                {t('doctor.quote')}
+                            </p>
+                            <Link to="/o-meni" className="inline-flex items-center px-8 py-4 bg-white text-text-medical border border-slate-200 rounded-full font-bold text-lg hover:border-primary hover:text-primary transition-all shadow-sm group">
+                                {t('doctor.btn')} <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Gallery Preview */}
+            <section className="py-24 bg-text-medical text-white selection:bg-white selection:text-text-medical">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+                        <div className="max-w-2xl">
+                            <h2 className="text-primary-light font-semibold tracking-wide uppercase text-sm mb-2">{t('gallery.tag')}</h2>
+                            <h3 className="text-3xl md:text-5xl font-serif font-bold mb-4">{t('gallery.title')}</h3>
+                            <p className="text-slate-400 text-lg">{t('gallery.desc')}</p>
+                        </div>
+                        <Link to="/galerija" className="inline-flex items-center gap-2 text-white hover:text-primary-light transition-colors group whitespace-nowrap font-bold text-lg border-b-2 border-transparent hover:border-primary-light pb-1">
+                            {t('gallery.btn')} <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                        </Link>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        {[
+                            'https://images.unsplash.com/photo-1606265752439-1f18756aa5fc?q=80&w=800&auto=format&fit=crop',
+                            'https://images.unsplash.com/photo-1537368910025-700350fe46c7?q=80&w=800&auto=format&fit=crop',
+                            'https://images.unsplash.com/photo-1498843053639-170ff2122f35?q=80&w=800&auto=format&fit=crop'
+                        ].map((img, idx) => (
+                            <div key={idx} className="relative group overflow-hidden rounded-3xl aspect-[4/3] shadow-lg">
+                                <img src={img} alt={`Transformacija ${idx + 1}`} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-90 group-hover:opacity-100" referrerPolicy="no-referrer" />
+                                <div className="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
+                                    <span className="text-white font-serif text-2xl font-bold border-2 border-white/50 px-6 py-3 rounded-full">{t('gallery.overlay')}</span>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </section>
 
             {/* Testimonials */}
-            <section className="py-24 bg-primary text-white overflow-hidden mt-12 mb-12 rounded-3xl mx-4 sm:mx-6 lg:mx-8 max-w-7xl lg:mx-auto">
-                <div className="px-4 sm:px-6 lg:px-8">
+            <section className="py-24 bg-primary text-white overflow-hidden">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-16">
-                        <h2 className="text-white/80 font-semibold tracking-wide uppercase text-sm mb-2">Iskustva Pacijenata</h2>
-                        <h3 className="text-3xl md:text-4xl font-serif font-bold">Šta kažu o nama</h3>
+                        <h2 className="text-white/80 font-semibold tracking-wide uppercase text-sm mb-2">{t('testimonials.tag')}</h2>
+                        <h3 className="text-3xl md:text-5xl font-serif font-bold">{t('testimonials.title')}</h3>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {[
-                            { name: 'Amira S.', text: 'Najbolje iskustvo kod zubara ikada! Dr. Sanela je izuzetno pažljiva i profesionalna. Ordinacija je prelijepa i moderna.' },
-                            { name: 'Kenan M.', text: 'Godinama sam imao strah od zubara, ali ovdje sam se osjećao potpuno opušteno. Sve preporuke za ovaj divan tim!' },
-                            { name: 'Lejla H.', text: 'Radila sam fasete i rezultat je iznad svih mojih očekivanja. Konačno se smijem sa samopouzdanjem. Hvala doktorici!' }
-                        ].map((testimonial, idx) => (
-                            <div key={idx} className="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/20">
+                        {reviews.map((testimonial, idx) => (
+                            <div key={idx} className="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/20 hover:bg-white/15 transition-colors">
                                 <div className="flex gap-1 text-yellow-400 mb-6">
                                     {[...Array(5)].map((_, i) => <Star key={i} className="w-5 h-5 fill-current" />)}
                                 </div>
-                                <p className="text-lg font-serif italic mb-6">"{testimonial.text}"</p>
-                                <p className="font-bold">{testimonial.name}</p>
+                                <p className="text-lg font-serif italic mb-6 leading-relaxed">"{testimonial.text}"</p>
+                                <p className="font-bold text-white/90">{testimonial.name}</p>
                             </div>
                         ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* FAQ Section */}
+            <section className="py-24 bg-bg-medical">
+                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="text-center mb-16">
+                        <h2 className="text-primary font-semibold tracking-wide uppercase text-sm mb-2">{t('faq.tag')}</h2>
+                        <h3 className="text-3xl md:text-5xl font-serif font-bold text-text-medical">{t('faq.title')}</h3>
+                    </div>
+
+                    <div className="space-y-4">
+                        {faqs.map((faq, idx) => (
+                            <div
+                                key={idx}
+                                className="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden text-left"
+                            >
+                                <button
+                                    onClick={() => toggleFaq(idx)}
+                                    className="w-full px-8 py-6 flex justify-between items-center focus:outline-none"
+                                >
+                                    <span className="font-bold text-lg text-text-medical text-left pr-4">{faq.question}</span>
+                                    <div className={`flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary transition-transform duration-300 ${openFaq === idx ? 'rotate-180 bg-primary text-white' : ''}`}>
+                                        <ChevronDown className="w-5 h-5" />
+                                    </div>
+                                </button>
+
+                                <AnimatePresence>
+                                    {openFaq === idx && (
+                                        <motion.div
+                                            initial={{ height: 0, opacity: 0 }}
+                                            animate={{ height: 'auto', opacity: 1 }}
+                                            exit={{ height: 0, opacity: 0 }}
+                                            transition={{ duration: 0.3 }}
+                                            className="overflow-hidden"
+                                        >
+                                            <div className="px-8 pb-6 text-slate-600 text-lg border-t border-slate-50 mt-2 pt-4">
+                                                {faq.answer}
+                                            </div>
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
+                            </div>
+                        ))}
+                    </div>
+
+                    <div className="text-center mt-12">
+                        <p className="text-slate-600 mb-4">{t('faq.missing')}</p>
+                        <Link to="/kontakt" className="font-bold text-primary hover:text-primary-dark transition-colors border-b-2 border-primary pb-1">
+                            {t('faq.contact')}
+                        </Link>
                     </div>
                 </div>
             </section>
