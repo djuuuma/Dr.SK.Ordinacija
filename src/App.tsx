@@ -486,7 +486,7 @@ export default function App() {
 
           <div className="pt-8 border-t border-slate-800 text-sm flex flex-col md:flex-row justify-between items-center">
             <p>&copy; {new Date().getFullYear()} Stomatološka ordinacija Dr. Sanela Kapić. Sva prava zadržana.</p>
-            <p className="mt-2 md:mt-0">Dizajn i izrada: <a href="#" className="text-primary hover:underline">Vaš Web Studio</a></p>
+            <p className="mt-2 md:mt-0">Dizajn i izrada: <a href="https://www.linkedin.com/in/anes-djumisic/" target="_blank" rel="noopener noreferrer" className="text-white font-semibold hover:underline">Anes Đumišić</a></p>
           </div>
         </div>
       </footer>
