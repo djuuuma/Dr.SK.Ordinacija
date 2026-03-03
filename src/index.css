@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&family=Noto+Sans:wght@300;400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #0891B2;
+  --color-primary-dark: #134E4A;
+  --color-primary-light: #22D3EE;
+  --color-secondary: #22D3EE;
+  --color-cta: #22C55E;
+  --color-bg-medical: #F0FDFA;
+  --color-text-medical: #134E4A;
+  --font-sans: "Noto Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Figtree", ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
