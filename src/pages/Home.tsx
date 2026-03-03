@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { ChevronRight, Shield, Smile, Zap, Star, ArrowRight, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import Testimonials from '../components/Testimonials';
 
 export default function Home() {
     const { t } = useTranslation();
@@ -187,26 +188,7 @@ export default function Home() {
             </section>
 
             {/* Testimonials */}
-            <section className="py-24 bg-primary text-white overflow-hidden">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-16">
-                        <h2 className="text-white/80 font-semibold tracking-wide uppercase text-sm mb-2">{t('testimonials.tag')}</h2>
-                        <h3 className="text-3xl md:text-5xl font-serif font-bold">{t('testimonials.title')}</h3>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {reviews.map((testimonial, idx) => (
-                            <div key={idx} className="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/20 hover:bg-white/15 transition-colors">
-                                <div className="flex gap-1 text-yellow-400 mb-6">
-                                    {[...Array(5)].map((_, i) => <Star key={i} className="w-5 h-5 fill-current" />)}
-                                </div>
-                                <p className="text-lg font-serif italic mb-6 leading-relaxed">"{testimonial.text}"</p>
-                                <p className="font-bold text-white/90">{testimonial.name}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
+            <Testimonials />
 
             {/* FAQ Section */}
             <section className="py-24 bg-bg-medical">
