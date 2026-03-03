@@ -273,12 +273,12 @@ export default function App() {
         </section>
 
         {/* Portfolio / Gallery */}
-        <section id="portfolio" className="py-24 bg-primary-dark text-white">
+        <section id="portfolio" className="py-24 bg-bg-medical text-slate-900">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-2xl mx-auto mb-16">
-              <h2 className="text-primary-light font-semibold tracking-wide uppercase text-sm mb-2">Naši Radovi</h2>
-              <h3 className="text-3xl md:text-4xl font-serif font-bold mb-4">Dokaz našeg kvaliteta</h3>
-              <p className="text-slate-400">Pogledajte rezultate našeg rada. Vaš osmijeh je naša najbolja reklama.</p>
+              <h2 className="text-primary font-semibold tracking-wide uppercase text-sm mb-2">Naši Radovi</h2>
+              <h3 className="text-3xl md:text-4xl font-serif font-bold text-text-medical mb-4">Dokaz našeg kvaliteta</h3>
+              <p className="text-slate-600">Pogledajte rezultate našeg rada. Vaš osmijeh je naša najbolja reklama.</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -442,7 +442,7 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-primary-dark text-slate-400 py-12 border-t border-slate-800">
+      <footer className="bg-primary text-white/90 py-12 border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
             <div className="col-span-1 md:col-span-2">
@@ -454,10 +454,10 @@ export default function App() {
                 Vrhunska stomatološka usluga u srcu Sarajeva. Vaš osmijeh je naša briga.
               </p>
               <div className="flex gap-4">
-                <a href="#" className="w-10 h-10 rounded-full bg-primary-dark flex items-center justify-center hover:bg-primary-dark hover:text-white focus:outline-none focus:ring-2 focus:ring-secondary">
+                <a href="#" className="w-10 h-10 rounded-full bg-primary flex items-center justify-center hover:bg-white hover:text-primary focus:outline-none focus:ring-2 focus:ring-secondary text-white">
                   <Instagram className="w-5 h-5" />
                 </a>
-                <a href="#" className="w-10 h-10 rounded-full bg-primary-dark flex items-center justify-center hover:bg-primary-dark hover:text-white focus:outline-none focus:ring-2 focus:ring-secondary">
+                <a href="#" className="w-10 h-10 rounded-full bg-primary flex items-center justify-center hover:bg-white hover:text-primary focus:outline-none focus:ring-2 focus:ring-secondary text-white">
                   <Facebook className="w-5 h-5" />
                 </a>
               </div>
@@ -466,20 +466,20 @@ export default function App() {
             <div>
               <h4 className="text-white font-bold mb-4">Brzi Linkovi</h4>
               <ul className="space-y-2">
-                <li><a href="#home" className="hover:text-primary transition-colors">Početna</a></li>
-                <li><a href="#services" className="hover:text-primary transition-colors">Usluge</a></li>
-                <li><a href="#portfolio" className="hover:text-primary transition-colors">Galerija</a></li>
-                <li><a href="#about" className="hover:text-primary transition-colors">O nama</a></li>
+                <li><a href="#home" className="hover:text-white transition-colors">Početna</a></li>
+                <li><a href="#services" className="hover:text-white transition-colors">Usluge</a></li>
+                <li><a href="#portfolio" className="hover:text-white transition-colors">Galerija</a></li>
+                <li><a href="#about" className="hover:text-white transition-colors">O nama</a></li>
               </ul>
             </div>
 
             <div>
               <h4 className="text-white font-bold mb-4">Usluge</h4>
               <ul className="space-y-2">
-                <li><a href="#" className="hover:text-primary transition-colors">Estetska Stomatologija</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Protetika</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Konzervativa</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Dječija Stomatologija</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Estetska Stomatologija</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Protetika</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Konzervativa</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Dječija Stomatologija</a></li>
               </ul>
             </div>
           </div>
