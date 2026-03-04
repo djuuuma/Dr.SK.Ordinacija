@@ -5,47 +5,10 @@ import { Link } from 'react-router-dom';
 
 export default function Usluge() {
     const { t } = useTranslation();
-    const cjenovnikKategorije = [
-        {
-            naziv: "Pregledi i Konzultacije",
-            usluge: [
-                { ime: "Opšti stomatološki pregled", cijena: "Besplatno" },
-                { ime: "Detaljni pregled i plan terapije", cijena: "50 KM" },
-                { ime: "Kontrolni pregled", cijena: "Besplatno" },
-                { ime: "Konsultacije za estetiku i protetiku", cijena: "Besplatno" }
-            ]
-        },
-        {
-            naziv: "Konzervativna Stomatologija",
-            usluge: [
-                { ime: "Kompozitni ispun (plomba) - jedna ploha", cijena: "50 KM" },
-                { ime: "Kompozitni ispun - dvije plohe", cijena: "60 KM" },
-                { ime: "Kompozitni ispun - tri i više ploha", cijena: "70 KM" },
-                { ime: "Liječenje korijenskog kanala (endodoncija)", cijena: "od 80 KM" },
-                { ime: "Vađenje zuba (rutinsko)", cijena: "40 KM" }
-            ]
-        },
-        {
-            naziv: "Protetika",
-            usluge: [
-                { ime: "Metalokeramička krunica", cijena: "250 KM" },
-                { ime: "Cirkon (bezmetalna) krunica", cijena: "450 KM" },
-                { ime: "Privremena krunica", cijena: "50 KM" },
-                { ime: "Totalna ili parcijalna akrilatna proteza", cijena: "500 KM" },
-                { ime: "Skeletirana wironit proteza", cijena: "800 KM" }
-            ]
-        },
-        {
-            naziv: "Estetska Stomatologija i Preventiva",
-            usluge: [
-                { ime: "Ultrazvučno uklanjanje zubnog kamenca i poliranje", cijena: "50 KM" },
-                { ime: "Pjeskarenje zuba (AirFlow metoda)", cijena: "60 KM" },
-                { ime: "Lasersko izbjeljivanje zuba (obadvije vilice)", cijena: "300 KM" },
-                { ime: "Kompozitna faseta (veneer)", cijena: "150 KM" },
-                { ime: "Zubni nakit (cirkon)", cijena: "80 KM" }
-            ]
-        }
-    ];
+    const cjenovnikData = t('services_page.categories', { returnObjects: true });
+    const cjenovnikKategorije = Array.isArray(cjenovnikData)
+        ? cjenovnikData as Array<{ naziv: string, usluge: Array<{ ime: string, cijena: string }> }>
+        : [];
 
     return (
         <div className="pt-24 pb-24 bg-bg-medical">

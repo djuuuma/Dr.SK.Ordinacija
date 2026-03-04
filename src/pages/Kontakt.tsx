@@ -68,11 +68,9 @@ export default function Kontakt() {
                                 <div>
                                     <label className="block text-sm font-medium text-text-medical mb-2">{t('contact_page.form.service')}</label>
                                     <select className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all bg-white">
-                                        <option>Opšti pregled</option>
-                                        <option>Popravka zuba</option>
-                                        <option>Izbjeljivanje</option>
-                                        <option>Protetika</option>
-                                        <option>Drugo</option>
+                                        {(t('contact_page.form.services', { returnObjects: true }) as string[]).map((service, index) => (
+                                            <option key={index}>{service}</option>
+                                        ))}
                                     </select>
                                 </div>
                                 <div>

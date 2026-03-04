@@ -17,6 +17,9 @@ export default function Layout() {
     const location = useLocation();
     const isHomePage = location.pathname === '/';
 
+    const footerServicesData = t('services.items', { returnObjects: true });
+    const footerServices = Array.isArray(footerServicesData) ? footerServicesData as Array<{ title: string, desc: string }> : [];
+
     const toggleLanguage = () => {
         const newLang = i18n.language === 'bs' ? 'en' : 'bs';
         i18n.changeLanguage(newLang);
@@ -198,10 +201,9 @@ export default function Layout() {
                         <div>
                             <h4 className="text-white font-bold mb-4">{t('footer.services')}</h4>
                             <ul className="space-y-2">
-                                <li><Link to="/usluge" className="hover:text-white transition-colors">Estetska Stomatologija</Link></li>
-                                <li><Link to="/usluge" className="hover:text-white transition-colors">Protetika</Link></li>
-                                <li><Link to="/usluge" className="hover:text-white transition-colors">Konzervativa</Link></li>
-                                <li><Link to="/usluge" className="hover:text-white transition-colors">Preventiva</Link></li>
+                                {footerServices.map((service, idx) => (
+                                    <li key={idx}><Link to="/usluge" className="hover:text-white transition-colors">{service.title}</Link></li>
+                                ))}
                             </ul>
                         </div>
                     </div>

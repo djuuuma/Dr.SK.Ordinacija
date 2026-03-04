@@ -4,6 +4,9 @@ import { CheckCircle, Clock, HeartHandshake, ShieldCheck } from 'lucide-react';
 
 export default function Proces() {
     const { t } = useTranslation();
+    const stepsData = t('process_page.steps', { returnObjects: true });
+    const steps = Array.isArray(stepsData) ? stepsData as Array<{ step: string, title: string, desc: string }> : [];
+
     return (
         <div className="pt-24 pb-24 bg-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -19,12 +22,7 @@ export default function Proces() {
                 <div className="flex flex-col lg:flex-row gap-16 items-center mb-20">
                     <div className="lg:w-1/2">
                         <div className="space-y-8">
-                            {[
-                                { step: '01', title: 'Prvi kontakt i konsultacije', desc: 'Sve počinje vašim pozivom ili porukom. Zakažemo termin koji vam odgovara. Na prvom pregledu pažljivo slušamo vaše želje i probleme, bez ikakvih obaveza.' },
-                                { step: '02', title: 'Detaljna dijagnostika i plan', desc: 'Koristimo modernu tehnologiju za preciznu dijagnostiku. Nakon toga, kreiramo jasan plan terapije sa ponuđenim opcijama i potpuno transparentnim cijenama.' },
-                                { step: '03', title: 'Bezbolan tretman', desc: 'Sam zahvat izvodimo u opuštajućoj atmosferi, koristeći moderne anestetike. Pratimo vaš ritam i pravimo pauze kad god su vam potrebne.' },
-                                { step: '04', title: 'Oporavak i novi osmijeh', desc: 'Dajemo vam detaljne upute za održavanje i uvijek smo dostupni za sva pitanja nakon zahvata. Vaš zdrav osmijeh je naš krajnji cilj.' }
-                            ].map((item, idx) => (
+                            {steps.map((item, idx) => (
                                 <div key={idx} className="flex gap-4 relative">
                                     {idx !== 3 && <div className="absolute left-6 top-14 bottom-[-2rem] w-[2px] bg-slate-100 z-0"></div>}
                                     <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-lg relative z-10">
