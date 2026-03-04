@@ -18,10 +18,10 @@ export default function Home() {
     const reviews = t('testimonials.reviews', { returnObjects: true }) as Array<{ name: string, text: string }>;
 
     const serviceImages = [
-        'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=800&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1609840114035-3c981b782dfe?q=80&w=800&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1598256989800-fea5f95bc14c?q=80&w=800&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=800&auto=format&fit=crop'
+        '/photos/dr%20sanela%20on%20a%20seminar%202.jpg',
+        '/photos/team%20image.jpg',
+        '/photos/dr%20sanela%20on%20a%20seminar%203.jpg',
+        '/photos/zirkonia2.jpg'
     ];
 
     return (
@@ -30,7 +30,7 @@ export default function Home() {
             <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-primary">
                 <div className="absolute inset-0">
                     <img
-                        src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=2070&auto=format&fit=crop"
+                        src="/photos/dr%20sanela%20on%20a%20seminar.jpg"
                         alt="Moderna stomatološka ordinacija"
                         className="w-full h-full object-cover opacity-20 mix-blend-overlay"
                         referrerPolicy="no-referrer"
@@ -139,7 +139,7 @@ export default function Home() {
                     <div className="bg-bg-medical rounded-[3rem] p-8 md:p-16 flex flex-col md:flex-row items-center gap-12 shadow-sm border border-slate-100">
                         <div className="md:w-1/2 w-full">
                             <div className="relative rounded-3xl overflow-hidden aspect-[4/3] md:h-[400px] shadow-lg">
-                                <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=800&auto=format&fit=crop" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" alt="Dr. Sanela Kapić" referrerPolicy="no-referrer" />
+                                <img src="/photos/dr%20sanela.png" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" alt="Dr. Sanela Kapić" referrerPolicy="no-referrer" />
                             </div>
                         </div>
                         <div className="md:w-1/2 w-full">
@@ -172,9 +172,9 @@ export default function Home() {
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                         {[
-                            'https://images.unsplash.com/photo-1606265752439-1f18756aa5fc?q=80&w=800&auto=format&fit=crop',
-                            'https://images.unsplash.com/photo-1537368910025-700350fe46c7?q=80&w=800&auto=format&fit=crop',
-                            'https://images.unsplash.com/photo-1498843053639-170ff2122f35?q=80&w=800&auto=format&fit=crop'
+                            '/photos/before1.png',
+                            '/photos/after1.png',
+                            '/photos/zirkonia%201.jpg'
                         ].map((img, idx) => (
                             <div key={idx} className="relative group overflow-hidden rounded-3xl aspect-[4/3] shadow-lg">
                                 <img src={img} alt={`Transformacija ${idx + 1}`} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-90 group-hover:opacity-100" referrerPolicy="no-referrer" />

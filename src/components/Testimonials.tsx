@@ -3,69 +3,18 @@ import { TestimonialsColumn } from "./ui/testimonials-columns-1";
 import { motion } from "motion/react";
 import { useTranslation } from "react-i18next";
 
-const testimonials = [
-    {
-        text: "Mislila sam da će ugradnja implantata biti bolna i stresna, ali dr. Sanela i njen tim su učinili proces gotovo neprimjetnim. Veoma sam zadovoljna!",
-        image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=100&auto=format&fit=crop",
-        name: "Amina K.",
-        role: "Pacijent",
-    },
-    {
-        text: "Profesionalnost na najvišem nivou. Ambijent u ordinaciji je veoma opuštajući, a rezultati izbjeljivanja zuba su fantastični!",
-        image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=100&auto=format&fit=crop",
-        name: "Emir T.",
-        role: "Pacijent",
-    },
-    {
-        text: "Radila sam navlake i oduševljena sam kako prirodno izgledaju. Hvala cijelom timu na strpljenju i vrhunskoj usluzi.",
-        image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=100&auto=format&fit=crop",
-        name: "Selma O.",
-        role: "Pacijent",
-    },
-    {
-        text: "Jako ljubazno osoblje i moderna oprema. Doktorica mi je sve detaljno objasnila prije zahvata. Svaka preporuka!",
-        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=100&auto=format&fit=crop",
-        name: "Haris J.",
-        role: "Pacijent",
-    },
-    {
-        text: "Izuzetno sam zadovoljna! Doslovno su mi spasili zub koji sam mislila da ću morati izvaditi.",
-        image: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=100&auto=format&fit=crop",
-        name: "Lejla H.",
-        role: "Pacijent",
-    },
-    {
-        text: "Brza usluga bez boli. Moja krunica izgleda odlično i potpuno prirodno. Cijenim ovakav profesionalan pristup.",
-        image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=100&auto=format&fit=crop",
-        name: "Nedim B.",
-        role: "Pacijent",
-    },
-    {
-        text: "Sve pohvale za stručnost i pristupačnost. Napokon sam prestala ići kod zubara sa strahom.",
-        image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=100&auto=format&fit=crop",
-        name: "Kenan M.",
-        role: "Pacijent",
-    },
-    {
-        text: "Kvalitet i usluga za svaku pohvalu. Ugradnja faseta mi je potpuno promijenila osmijeh i vratila samopouzdanje.",
-        image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=100&auto=format&fit=crop",
-        name: "Emina R.",
-        role: "Pacijent",
-    },
-    {
-        text: "Nisam nikada bio na boljem pregledu. Tim je posvećen svakom pacijentu pojedinačno. Odlično iskustvo!",
-        image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=100&auto=format&fit=crop",
-        name: "Dino S.",
-        role: "Pacijent",
-    }
-];
 
-const firstColumn = testimonials.slice(0, 3);
-const secondColumn = testimonials.slice(3, 6);
-const thirdColumn = testimonials.slice(6, 9);
+
+
 
 const Testimonials = () => {
     const { t } = useTranslation();
+    const tData = t("testimonials_page_reviews", { returnObjects: true });
+    const testimonials = Array.isArray(tData) ? tData as Array<{ name: string, text: string, image: string, role: string }> : [];
+
+    const firstColumn = testimonials.slice(0, 3);
+    const secondColumn = testimonials.slice(3, 6);
+    const thirdColumn = testimonials.slice(6, 9);
 
     return (
         <section className="py-24 bg-primary text-white relative overflow-hidden">

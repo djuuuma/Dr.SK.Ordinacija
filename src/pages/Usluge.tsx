@@ -1,8 +1,10 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { ChevronRight, Check } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Usluge() {
+    const { t } = useTranslation();
     const cjenovnikKategorije = [
         {
             naziv: "Pregledi i Konzultacije",
@@ -51,10 +53,10 @@ export default function Usluge() {
 
                 {/* Header Sekcija */}
                 <div className="text-center max-w-3xl mx-auto mb-16">
-                    <h1 className="text-primary font-semibold tracking-wide uppercase text-sm mb-2">Naše Cijene</h1>
-                    <h2 className="text-3xl md:text-5xl font-serif font-bold text-text-medical mb-6">Cjenovnik Usluga</h2>
+                    <h1 className="text-primary font-semibold tracking-wide uppercase text-sm mb-2">{t('services_page.tag')}</h1>
+                    <h2 className="text-3xl md:text-5xl font-serif font-bold text-text-medical mb-6">{t('services_page.title')}</h2>
                     <p className="text-slate-600 text-lg">
-                        Vjerujemo u potpunu transparentnost. Ispod se nalazi okvirni cjenovnik najčešćih usluga. Tačna cijena zavisi od individualnog plana liječenja koji se definiše na besplatnom pregledu.
+                        {t('services_page.desc')}
                     </p>
                 </div>
 
@@ -82,17 +84,17 @@ export default function Usluge() {
 
                 {/* Call to Action */}
                 <div className="bg-primary rounded-3xl p-10 text-center text-white relative overflow-hidden">
-                    <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=2070&auto=format&fit=crop')] opacity-10 mix-blend-overlay object-cover"></div>
+                    <div className="absolute inset-0 bg-[url('/photos/dr%20sanela%20on%20a%20seminar.jpg')] opacity-10 mix-blend-overlay object-cover"></div>
                     <div className="relative z-10 max-w-2xl mx-auto">
-                        <h3 className="text-3xl font-serif font-bold mb-4">Niste sigurni šta Vam je potrebno?</h3>
+                        <h3 className="text-3xl font-serif font-bold mb-4">{t('services_page.cta_title')}</h3>
                         <p className="text-white/80 mb-8 text-lg">
-                            Svaki osmijeh je jedinstven. Zakažite besplatan pregled i dobit ćete potpuno personalizovan plan liječenja sa preciznim troškovima.
+                            {t('services_page.cta_desc')}
                         </p>
                         <Link
                             to="/kontakt"
                             className="inline-flex items-center gap-2 px-8 py-4 bg-white text-primary rounded-full font-bold text-lg hover:shadow-xl hover:scale-105 transition-all focus:outline-none focus:ring-2 focus:ring-white"
                         >
-                            Zakažite Besplatan Pregled <ChevronRight className="w-5 h-5" />
+                            {t('services_page.cta_btn')} <ChevronRight className="w-5 h-5" />
                         </Link>
                     </div>
                 </div>
