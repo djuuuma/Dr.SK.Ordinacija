@@ -180,6 +180,21 @@
         "email": "Email",
         "address": "Adresa",
         "hours": "Radno Vrijeme",
+        "details": {
+            "phone_main": "033 862-138",
+            "phone_mobile_label": "Mobitel",
+            "phone_mobile": "061 177 407",
+            "address": "Grbavička 18, Sarajevo",
+            "hours_lines": [
+                "Ponedjeljak: 09:00–16:00",
+                "Utorak: 12:00–19:00",
+                "Srijeda: 09:00–16:00",
+                "Četvrtak: 12:00–19:00",
+                "Petak: 09:00–16:00",
+                "Subota: Zatvoreno",
+                "Nedjelja: Zatvoreno"
+            ]
+        },
         "form": {
             "name": "Ime i Prezime",
             "phone": "Broj Telefona",

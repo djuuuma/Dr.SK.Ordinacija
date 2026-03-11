@@ -180,6 +180,24 @@
         "email": "Email",
         "address": "Address",
         "hours": "Working Hours",
+<<<<<<< HEAD
+=======
+        "details": {
+            "phone_main": "033 862-138",
+            "phone_mobile_label": "Mobile",
+            "phone_mobile": "061 177 407",
+            "address": "Grbavička 18, Sarajevo",
+            "hours_lines": [
+                "Monday: 9 AM–4 PM",
+                "Tuesday: 12–7 PM",
+                "Wednesday: 9 AM–4 PM",
+                "Thursday: 12–7 PM",
+                "Friday: 9 AM–4 PM",
+                "Saturday: Closed",
+                "Sunday: Closed"
+            ]
+        },
+>>>>>>> c23aba6 (Novi info)
         "form": {
             "name": "Full Name",
             "phone": "Phone Number",
