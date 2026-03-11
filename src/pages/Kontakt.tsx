@@ -4,10 +4,7 @@ import { Phone, MapPin, Clock, Mail } from 'lucide-react';
 
 export default function Kontakt() {
     const { t } = useTranslation();
-<<<<<<< HEAD
-=======
     const hours = t('contact_page.details.hours_lines', { returnObjects: true }) as string[];
->>>>>>> c23aba6 (Novi info)
     return (
         <div className="pt-24 pb-24 bg-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -26,14 +23,10 @@ export default function Kontakt() {
                                     </div>
                                     <div>
                                         <h2 className="text-sm text-slate-500">{t('contact_page.phone')}</h2>
-<<<<<<< HEAD
-                                        <p className="font-bold text-text-medical">+387 61 123 456</p>
-=======
                                         <p className="font-bold text-text-medical">{t('contact_page.details.phone_main')}</p>
                                         <p className="text-sm text-slate-500 mt-0.5">
                                             {t('contact_page.details.phone_mobile_label')}: {t('contact_page.details.phone_mobile')}
                                         </p>
->>>>>>> c23aba6 (Novi info)
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-4">
@@ -51,27 +44,17 @@ export default function Kontakt() {
                                     </div>
                                     <div>
                                         <h2 className="text-sm text-slate-500">{t('contact_page.address')}</h2>
-<<<<<<< HEAD
-                                        <p className="font-bold text-text-medical">Zmaja od Bosne bb, Sarajevo</p>
-                                    </div>
-                                </div>
-                                <div className="flex items-center gap-4">
-=======
                                         <p className="font-bold text-text-medical">
                                             {t('contact_page.details.address')}
                                         </p>
                                     </div>
                                 </div>
                                 <div className="flex items-start gap-4">
->>>>>>> c23aba6 (Novi info)
                                     <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-primary shadow-sm">
                                         <Clock className="w-5 h-5" />
                                     </div>
                                     <div>
                                         <h2 className="text-sm text-slate-500">{t('contact_page.hours')}</h2>
-<<<<<<< HEAD
-                                        <p className="font-bold text-text-medical">Pon - Pet: 09:00 - 17:00</p>
-=======
                                         <div className="mt-3 rounded-2xl bg-white/60 border border-slate-100 px-4 py-3 shadow-sm">
                                             <div className="space-y-1.5 text-sm font-semibold text-text-medical">
                                                 {hours.map((line, index) => {
@@ -87,7 +70,6 @@ export default function Kontakt() {
                                                 })}
                                             </div>
                                         </div>
->>>>>>> c23aba6 (Novi info)
                                     </div>
                                 </div>
                             </div>

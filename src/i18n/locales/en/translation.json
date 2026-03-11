@@ -180,8 +180,6 @@
         "email": "Email",
         "address": "Address",
         "hours": "Working Hours",
-<<<<<<< HEAD
-=======
         "details": {
             "phone_main": "033 862-138",
             "phone_mobile_label": "Mobile",
@@ -197,7 +195,6 @@
                 "Sunday: Closed"
             ]
         },
->>>>>>> c23aba6 (Novi info)
         "form": {
             "name": "Full Name",
             "phone": "Phone Number",
