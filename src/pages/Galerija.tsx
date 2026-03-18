@@ -13,15 +13,29 @@ export default function Galerija() {
                     <p className="text-slate-600">{t('gallery_page.desc')}</p>
                 </div>
 
-                {/* Before / After Slider */}
-                <div className="mb-12">
-                    <h3 className="text-xl font-serif font-bold text-text-medical mb-6 text-center">{t('gallery_page.overlay')}</h3>
-                    <ImageComparison
-                        beforeImage="/photos/before1.png"
-                        afterImage="/photos/after1.png"
-                        altBefore={t('gallery.before')}
-                        altAfter={t('gallery.after')}
-                    />
+                {/* Before / After Sliders */}
+                <div className="mb-16">
+                    <h3 className="text-2xl md:text-3xl font-serif font-bold text-text-medical mb-10 text-center">{t('gallery_page.overlay')}</h3>
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                        <ImageComparison
+                            beforeImage="/photos/before1.png"
+                            afterImage="/photos/after1.png"
+                            altBefore={t('gallery.before')}
+                            altAfter={t('gallery.after')}
+                        />
+                        <ImageComparison
+                            beforeImage="/photos/before2.png"
+                            afterImage="/photos/after2.png"
+                            altBefore={t('gallery.before')}
+                            altAfter={t('gallery.after')}
+                        />
+                        <ImageComparison
+                            beforeImage="/photos/before3.png"
+                            afterImage="/photos/after3.png"
+                            altBefore={t('gallery.before')}
+                            altAfter={t('gallery.after')}
+                        />
+                    </div>
                 </div>
 
                 {/* Other Gallery Images */}

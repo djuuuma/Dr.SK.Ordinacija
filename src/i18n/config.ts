@@ -13,6 +13,10 @@ i18n
             en: { translation: enTranslation }
         },
         fallbackLng: 'bs',
+        detection: {
+            order: ['localStorage', 'sessionStorage'],
+            caches: ['localStorage']
+        },
         interpolation: {
             escapeValue: false, // not needed for react as it escapes by default
         },
