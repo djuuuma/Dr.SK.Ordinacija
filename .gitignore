@@ -6,6 +6,8 @@ coverage/
 *.log
 .env*
 !.env.example
+!sug.md
+!suggestions.md
 
 # Skill folders
 ui-ux-pro-max-skill/
