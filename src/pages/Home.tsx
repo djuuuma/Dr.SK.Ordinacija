@@ -4,6 +4,7 @@ import { ChevronRight, Shield, Smile, Zap, Star, ArrowRight, ChevronDown } from 
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Testimonials from '../components/Testimonials';
+import { ImageComparison } from '../components/ui/image-comparison-slider';
 
 export default function Home() {
     const { t } = useTranslation();
@@ -156,33 +157,50 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* Gallery Preview */}
-            <section className="py-24 bg-text-medical text-white selection:bg-white selection:text-text-medical">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Gallery Preview - Naši Radovi */}
+            <section className="py-24 bg-bg-medical relative overflow-hidden">
+                {/* Decorative elements */}
+                <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+                <div className="absolute bottom-0 left-0 w-72 h-72 bg-primary/5 rounded-full translate-y-1/2 -translate-x-1/2"></div>
+
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
                         <div className="max-w-2xl">
-                            <h2 className="text-primary-light font-semibold tracking-wide uppercase text-sm mb-2">{t('gallery.tag')}</h2>
-                            <h3 className="text-3xl md:text-5xl font-serif font-bold mb-4">{t('gallery.title')}</h3>
-                            <p className="text-slate-400 text-lg">{t('gallery.desc')}</p>
+                            <h2 className="text-primary font-semibold tracking-wide uppercase text-sm mb-2">{t('gallery.tag')}</h2>
+                            <h3 className="text-3xl md:text-5xl font-serif font-bold text-text-medical mb-4">{t('gallery.title')}</h3>
+                            <p className="text-slate-600 text-lg">{t('gallery.desc')}</p>
                         </div>
-                        <Link to="/galerija" className="inline-flex items-center gap-2 text-white hover:text-primary-light transition-colors group whitespace-nowrap font-bold text-lg border-b-2 border-transparent hover:border-primary-light pb-1">
+                        <Link to="/galerija" className="inline-flex items-center gap-2 text-primary hover:text-primary-dark transition-colors group whitespace-nowrap font-bold text-lg border-b-2 border-transparent hover:border-primary pb-1">
                             {t('gallery.btn')} <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Link>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        {[
-                            '/photos/before1.png',
-                            '/photos/after1.png',
-                            '/photos/zirkonia%201.jpg'
-                        ].map((img, idx) => (
-                            <div key={idx} className="relative group overflow-hidden rounded-3xl aspect-[4/3] shadow-lg">
-                                <img src={img} alt={`Transformacija ${idx + 1}`} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-90 group-hover:opacity-100" referrerPolicy="no-referrer" />
-                                <div className="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
-                                    <span className="text-white font-serif text-2xl font-bold border-2 border-white/50 px-6 py-3 rounded-full">{t('gallery.overlay')}</span>
+                    <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center">
+                        {/* Before / After Slider */}
+                        <div className="lg:col-span-3">
+                            <ImageComparison
+                                beforeImage="/photos/before1.png"
+                                afterImage="/photos/after1.png"
+                                altBefore={t('gallery.before')}
+                                altAfter={t('gallery.after')}
+                            />
+                        </div>
+
+                        {/* Accent Image */}
+                        <div className="lg:col-span-2 flex flex-col gap-6">
+                            <div className="relative group overflow-hidden rounded-2xl aspect-[4/3] shadow-lg">
+                                <img src="/photos/zirkonia%201.jpg" alt="Cirkon krunice" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" referrerPolicy="no-referrer" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-text-medical/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
+                                    <span className="text-white font-serif text-xl font-bold">{t('gallery.overlay')}</span>
                                 </div>
                             </div>
-                        ))}
+                            <div className="relative group overflow-hidden rounded-2xl aspect-[4/3] shadow-lg">
+                                <img src="/photos/zirkonia2.jpg" alt="Zirkonia rad" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" referrerPolicy="no-referrer" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-text-medical/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
+                                    <span className="text-white font-serif text-xl font-bold">{t('gallery.overlay')}</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>

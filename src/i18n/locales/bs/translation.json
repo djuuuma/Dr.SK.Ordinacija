@@ -65,7 +65,9 @@
         "title": "Dokaz našeg kvaliteta",
         "desc": "Transformacije koje vraćaju samopouzdanje. Vaš osmijeh je naša najbolja reklama.",
         "btn": "Cijela Galerija",
-        "overlay": "Prije & Poslije"
+        "overlay": "Prije & Poslije",
+        "before": "Prije",
+        "after": "Poslije"
     },
     "testimonials": {
         "tag": "Iskustva Pacijenata",

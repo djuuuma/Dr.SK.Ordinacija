@@ -65,7 +65,9 @@
         "title": "Proof of Our Quality",
         "desc": "Transformations that restore confidence. Your smile is our best advertisement.",
         "btn": "Full Gallery",
-        "overlay": "Before & After"
+        "overlay": "Before & After",
+        "before": "Before",
+        "after": "After"
     },
     "testimonials": {
         "tag": "Patient Experiences",

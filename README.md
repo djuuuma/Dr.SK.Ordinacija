@@ -9,29 +9,38 @@ Ovo je moderna, brza i responsivna web stranica izrađena za dentalnu ordinaciju
 Aplikacija je postepeno nadograđivana iz jednostavnog prototipa u punokrvni moderni web sajt:
 
 1. **Implementacija Dvojezičnosti (i18n):** 
-   - Postavljen je **`react-i18next`** za lako prebacivanje između **Bosanskog i Engleskog jezika**. Prevedeni su navigacija, footer i svi bitni elementi početne stranice. Dugme za jezik (🌐) je dodano u glavni navbar kako za desktop tako i za mobilni meni.
+   - Postavljen je **`react-i18next`** za lako prebacivanje između **Bosanskog i Engleskog jezika**. Prevedeni su navigacija, footer i svi bitni elementi početne stranice. Dugme za jezik (🌐) je dodano u glavni navbar.
    
 2. **Razdvajanje u Multi-Page Aplikaciju:**
-   - Putem **`react-router-dom`** biblioteke kreiran je moćan sistem rutiranja. Monolitna struktura je uspješno razdvojena na nezavisne stranice (`Home`, `Usluge`, `Proces`, `Galerija`, `O meni`, `Kontakt`), koje redom izlistavaju svoje specifične podatke.
+   - Putem **`react-router-dom`** biblioteke kreiran je moćan sistem rutiranja. Monolitna struktura je razdvojena na nezavisne stranice: `Home`, `Usluge`, `Proces`, `Galerija`, `O meni`, `Kontakt`.
    
 3. **Bogate Komponente & Dizajn:**
-   - Izgrađen je centralni `Layout` element koji dijeli Header i Footer kroz cijeli portal.
-   - **Početna Stranica (Home):** Dopunjena sa animiranom hero sekcijom, istaknutim uslugama sa kratkim preview slikama, FAQ (Česta Pitanja) sa dinamičnim zatvaranjem, i izdvojenim vizualima za prezentovanje doktora.
-   - Stranica `Usluge` je pretvorena u moderan i veoma pregledan **Cjenovnik** sa ikonicama.
-   - Sve komponente se oslanjaju na dinamički **Tailwind** koji sadrži strogo precizirane parametre ubačene u poseban dokument pod nazivom **`Design-Guide.md`**.
+   - Izgrađen je centralni `Layout` element.
+   - **Početna Stranica (Home):** Animirana hero sekcija, FAQ sa dinamičnim otvaranjem, i sekcije za doktora i recenzije.
+   - Stranica `Usluge` sadrži moderan i pregledan **Cjenovnik** sa ikonama.
    
 4. **Alati za Ljepotu i Animiranje:**
-   - Grafički obogaćeno sa **`lucide-react`** minijaturnim i elegantnim ikonama.
-   - Scroll sekvence i otvaranje padajućih elemenata animirani su najnovijom **`motion/react`** (Framer Motion) tehnologijom.
+   - Ikone: **`lucide-react`**.
+   - Animacije: **`motion/react`** (Framer Motion).
+
+5. **Vizualna Optimizacija i Interaktivni Slajderi (Novo!):**
+   - **Redizajn "NAŠI RADOVI":** Sekcija na početnoj stranici je potpuno osvježena novom medicinskom paletom boja (mint/teal) za bolju čitljivost i profesionalniji izgled.
+   - **Before/After Slajder:** Implementirana je custom `ImageComparison` komponenta koja omogućava pacijentima da interaktivno porede rezultate tretmana ("Prije" i "Poslije") povlačenjem ručke.
+   - **Integracija:** Slajder je postavljen na `Home` stranicu i kao centralni dio `Galerije`.
 
 ---
 
 ## 🛠 Tehnologije
 
-- **Frontend Framework:** React 18, Vite
+- **Frontend Framework:** React 19, Vite
 - **Stilizovanje:** Tailwind CSS (v4)
 - **Rutiranje:** React Router (v7)
-- **Lokalizacija (Prevod):** React i18next & i18next Browser Language Detector
+- **Lokalizacija (Prevod):** React i18next
 - **Animacije i Ikone:** Motion (Framer), Lucide-React
 
 ---
+
+## 📅 Budući Planovi
+
+Kompletan popis planiranih dorada (SEO, kontakt forma, optimizacija slika) nalazi se u dokumentu:
+👉 **[POBOLJSANJA.md](./POBOLJSANJA.md)**
