@@ -36,7 +36,7 @@ const Testimonials = () => {
                         {t("testimonials.title")}
                     </h3>
                     <p className="text-center mt-5 opacity-75">
-                        Naši pacijenti su naša najbolja preporuka. Otkrijte zašto nam vjeruju već dugi niz godina.
+                        {t("testimonials.desc")}
                     </p>
                 </motion.div>
 

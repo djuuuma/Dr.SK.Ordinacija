@@ -91,9 +91,9 @@ export default function Layout() {
                             </NavLink>
                         ))}
 
-                        <button onClick={toggleLanguage} className={`flex items-center gap-1 text-sm font-bold uppercase transition-colors hover:text-primary pl-2 border-l ${isScrolled || !isHomePage ? 'text-slate-600 border-slate-300' : 'text-white border-white/30'}`}>
+                        <button onClick={toggleLanguage} className={`flex items-center gap-2 text-sm font-bold transition-all px-3 py-1.5 rounded-full border ${isScrolled || !isHomePage ? 'text-slate-700 border-slate-200 hover:bg-slate-100' : 'text-white border-white/30 hover:bg-white/10'}`}>
                             <Globe className="w-4 h-4" />
-                            {i18n.language === 'en' ? 'EN' : 'BS'}
+                            <span>{i18n.language === 'en' ? 'English' : 'Bosanski'}</span>
                         </button>
 
                         <Link

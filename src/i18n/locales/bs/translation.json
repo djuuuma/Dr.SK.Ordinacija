@@ -72,6 +72,7 @@
     "testimonials": {
         "tag": "Iskustva Pacijenata",
         "title": "Šta kažu o nama",
+        "desc": "Naši pacijenti su naša najbolja preporuka. Otkrijte zašto nam vjeruju već dugi niz godina.",
         "reviews": [
             {
                 "name": "Amira S.",

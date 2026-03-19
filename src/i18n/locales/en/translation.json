@@ -72,6 +72,7 @@
     "testimonials": {
         "tag": "Patient Experiences",
         "title": "What they say about us",
+        "desc": "Our patients are our best recommendation. Discover why they have trusted us for many years.",
         "reviews": [
             {
                 "name": "Amira S.",
