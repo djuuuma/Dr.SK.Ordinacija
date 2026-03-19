@@ -10,7 +10,7 @@ export default function OMeni() {
                 {/* Hero Section */}
                 <div className="bg-white rounded-[3rem] shadow-xl overflow-hidden flex flex-col md:flex-row mb-16">
                     <div className="md:w-2/5 h-96 md:h-auto relative">
-                        <img src="/photos/dr%20sanela.png" alt="Dr. Sanela Kapić" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                        <img src="/photos/dr%20sanela.png" alt="Dr. Sanela Kapić" loading="lazy" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                     </div>
                     <div className="md:w-3/5 p-10 md:p-16 flex flex-col justify-center">
                         <h1 className="text-primary font-semibold tracking-wide uppercase text-sm mb-2">{t('about_page.tag')}</h1>

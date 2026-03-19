@@ -113,7 +113,7 @@ export default function Home() {
                         {services.map((service, idx) => (
                             <div key={idx} className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow group flex flex-col">
                                 <div className="h-48 overflow-hidden">
-                                    <img src={serviceImages[idx]} alt={service.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" referrerPolicy="no-referrer" />
+                                    <img src={serviceImages[idx]} alt={service.title} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" referrerPolicy="no-referrer" />
                                 </div>
                                 <div className="p-6 flex-grow flex flex-col">
                                     <h4 className="text-xl font-bold mb-2 text-text-medical">{service.title}</h4>
@@ -140,7 +140,7 @@ export default function Home() {
                     <div className="bg-bg-medical rounded-[3rem] p-8 md:p-16 flex flex-col md:flex-row items-center gap-12 shadow-sm border border-slate-100">
                         <div className="md:w-1/2 w-full">
                             <div className="relative rounded-3xl overflow-hidden aspect-[4/3] md:h-[400px] shadow-lg">
-                                <img src="/photos/dr%20sanela.png" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" alt="Dr. Sanela Kapić" referrerPolicy="no-referrer" />
+                                <img src="/photos/dr%20sanela.png" loading="lazy" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" alt="Dr. Sanela Kapić" referrerPolicy="no-referrer" />
                             </div>
                         </div>
                         <div className="md:w-1/2 w-full">
@@ -189,13 +189,13 @@ export default function Home() {
                         {/* Accent Image */}
                         <div className="lg:col-span-2 flex flex-col gap-6">
                             <div className="relative group overflow-hidden rounded-2xl aspect-[4/3] shadow-lg">
-                                <img src="/photos/zirkonia%201.jpg" alt="Cirkon krunice" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" referrerPolicy="no-referrer" />
+                                <img src="/photos/zirkonia%201.jpg" alt="Cirkon krunice" loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" referrerPolicy="no-referrer" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-text-medical/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
                                     <span className="text-white font-serif text-xl font-bold">{t('gallery.overlay')}</span>
                                 </div>
                             </div>
                             <div className="relative group overflow-hidden rounded-2xl aspect-[4/3] shadow-lg">
-                                <img src="/photos/zirkonia2.jpg" alt="Zirkonia rad" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" referrerPolicy="no-referrer" />
+                                <img src="/photos/zirkonia2.jpg" alt="Zirkonia rad" loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" referrerPolicy="no-referrer" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-text-medical/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
                                     <span className="text-white font-serif text-xl font-bold">{t('gallery.overlay')}</span>
                                 </div>

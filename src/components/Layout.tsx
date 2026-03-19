@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, Outlet, useLocation } from 'react-router-dom';
+import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, Instagram, Facebook, Globe } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
@@ -69,24 +69,26 @@ export default function Layout() {
                                 Dr. Sanela Kapić
                             </span>
                             <span className={`text-[10px] uppercase tracking-wider font-medium ${isScrolled || !isHomePage ? 'text-slate-500' : 'text-white/80'}`}>
-                                Stomatološka ordinacija
+                                {t('nav.subtitle', 'Stomatološka ordinacija')}
                             </span>
                         </div>
                     </Link>
 
                     {/* Desktop Nav */}
-                    <nav className="hidden md:flex items-center gap-6 lg:gap-8">
+                    <nav className="hidden md:flex items-center gap-6 lg:gap-8" aria-label={t('nav.main_nav', 'Glavna navigacija')}>
                         {navLinks.map((link) => (
-                            <Link
+                            <NavLink
                                 key={link.name}
                                 to={link.href}
-                                className={`text-sm font-medium transition-colors hover:text-primary ${location.pathname === link.href
-                                    ? (isScrolled || !isHomePage ? 'text-primary' : 'text-white font-bold')
+                                end={link.href === '/'}
+                                className={({ isActive }) => `text-sm font-medium transition-colors hover:text-primary ${isActive
+                                    ? (isScrolled || !isHomePage ? 'text-primary font-bold' : 'text-white font-bold')
                                     : (isScrolled || !isHomePage ? 'text-slate-600' : 'text-white/90 hover:text-white')
                                     }`}
+                                aria-current={location.pathname === link.href ? 'page' : undefined}
                             >
                                 {link.name}
-                            </Link>
+                            </NavLink>
                         ))}
 
                         <button onClick={toggleLanguage} className={`flex items-center gap-1 text-sm font-bold uppercase transition-colors hover:text-primary pl-2 border-l ${isScrolled || !isHomePage ? 'text-slate-600 border-slate-300' : 'text-white border-white/30'}`}>
@@ -113,6 +115,8 @@ export default function Layout() {
                         <button
                             className="p-2"
                             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                            aria-expanded={mobileMenuOpen}
+                            aria-label={mobileMenuOpen ? t('nav.close_menu', 'Zatvori meni') : t('nav.open_menu', 'Otvori meni')}
                         >
                             {mobileMenuOpen ? (
                                 <X className={isScrolled || !isHomePage ? 'text-text-medical' : 'text-white'} />
@@ -133,16 +137,18 @@ export default function Layout() {
                         exit={{ opacity: 0, y: -20 }}
                         className="fixed inset-0 z-40 bg-white pt-24 px-6 pb-6 flex flex-col md:hidden"
                     >
-                        <nav className="flex flex-col gap-6 text-center">
+                        <nav className="flex flex-col gap-6 text-center" aria-label={t('nav.mobile_nav', 'Mobilna navigacija')}>
                             {navLinks.map((link) => (
-                                <Link
+                                <NavLink
                                     key={link.name}
                                     to={link.href}
-                                    className={`text-2xl font-serif hover:text-primary transition-colors ${location.pathname === link.href ? 'text-primary' : 'text-text-medical'
+                                    end={link.href === '/'}
+                                    className={({ isActive }) => `text-2xl font-serif hover:text-primary transition-colors ${isActive ? 'text-primary' : 'text-text-medical'
                                         }`}
+                                    aria-current={location.pathname === link.href ? 'page' : undefined}
                                 >
                                     {link.name}
-                                </Link>
+                                </NavLink>
                             ))}
                             <div className="flex justify-center mt-2 border-t border-slate-100 pt-6">
                                 <button onClick={toggleLanguage} className="flex items-center gap-2 text-lg font-bold uppercase text-primary bg-primary/10 px-6 py-2 rounded-full">
@@ -179,10 +185,10 @@ export default function Layout() {
                                 {t('footer.desc')}
                             </p>
                             <div className="flex gap-4">
-                                <a href="#" className="w-10 h-10 rounded-full bg-primary flex items-center justify-center hover:bg-white hover:text-primary focus:outline-none focus:ring-2 focus:ring-secondary text-white">
+                                <a href="#" aria-label="Instagram" className="w-10 h-10 rounded-full bg-primary flex items-center justify-center hover:bg-white hover:text-primary focus:outline-none focus:ring-2 focus:ring-secondary text-white">
                                     <Instagram className="w-5 h-5" />
                                 </a>
-                                <a href="#" className="w-10 h-10 rounded-full bg-primary flex items-center justify-center hover:bg-white hover:text-primary focus:outline-none focus:ring-2 focus:ring-secondary text-white">
+                                <a href="#" aria-label="Facebook" className="w-10 h-10 rounded-full bg-primary flex items-center justify-center hover:bg-white hover:text-primary focus:outline-none focus:ring-2 focus:ring-secondary text-white">
                                     <Facebook className="w-5 h-5" />
                                 </a>
                             </div>
